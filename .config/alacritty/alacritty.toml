@@ -1,0 +1,55 @@
+[colors.bright]
+black = "#282c34"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c378"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#abb2bf"
+yellow = "#e5c07b"
+
+[colors.normal]
+black = "#282c34"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c378"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#abb2bf"
+yellow = "#e5c07b"
+
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "monospace"
+style = "Regular"
+
+[font.bold_italic]
+family = "monospace"
+style = "Italic"
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.99
+title = "Alacritty"
+
+[window.dimensions]
+columns = 200
+lines = 46
