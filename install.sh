@@ -11,9 +11,16 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT_GRAY='\033[0;37m'
 
-CWDPATH=$(pwd)
-TMPPATH="/tmp/dotfiles"
-ALACRITTYPATH="${TMPPATH}/alacritty"
+CWD_PATH=$(pwd)
+TMP_PATH="/tmp/dotfiles"
+
+TMP_PATH_ALACRITTY="${TMP_PATH}/alacritty"
+CFG_SRC_PATH_ALACRITTY="${CWD_PATH}/.config/alacritty"
+CFG_TARGET_PATH_ALACRITTY="${HOME}/.config/alacritty"
+
+TMP_PATH_NEOVIM="${TMP_PATH}/neovim"
+CFG_SRC_PATH_NEOVIM="${CWD_PATH}/.config/nvim"
+CFG_TARGET_PATH_NEOVIM="${HOME}/.config/nvim"
 
 function repeat_character ()
 {
@@ -32,7 +39,7 @@ function banner ()
 
 function query_user()
 {
-    printf "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT\n"
+    printf "$1\n"
     while true; do
         read -p "Are you sure that you want to proceed with doing this? [y\\n]" yn
         case $yn in
@@ -58,13 +65,13 @@ function log_warning ()
 #
 clear
 banner " DEBIAN SYSTEM SETUP "
-query_user
+query_user "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT"
 
 #
 # Update package manager and set up sudo access if not had previously.
 #
 log_info "setting up ``sudo`` and updating package manager..."
-mkdir -p $TMPPATH
+mkdir -p $TMP_PATH
 sudo apt-get update
 log_info "OK!"
 
@@ -79,8 +86,8 @@ log_info "OK!"
 # Build and install Alacritty from source.
 #
 log_info "installing ``alacritty``..."
-git clone https://github.com/alacritty/alacritty.git $ALACRITTYPATH
-cd $ALACRITTYPATH
+git clone https://github.com/alacritty/alacritty.git $TMP_PATH_ALACRITTY
+cd $TMP_PATH_ALACRITTY
 
 log_info "setting up dependencies..."
 sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
@@ -91,10 +98,32 @@ sudo cp target/release/alacritty /usr/local/bin
 sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/Alacritty.desktop
 sudo update-desktop-database
-cd $CWDPATH
+cd $CWD_PATH
 log_info "OK!"
 
 log_info "setting up ``alacritty`` config..."
-
+mkdir -p $CFG_TARGET_PATH_ALACRITTY
+cp -r $CFG_SRC_PATH_ALACRITTY $CFG_TARGET_PATH_ALACRITTY
 log_info "OK!"
 
+#
+# Build and install Neovim from source.
+#
+log_info "installing ``neovim``..."
+git clone https://github.com/neovim/neovim $TMP_PATH_NEOVIM
+cd $TMP_PATH_NEOVIM
+log_info "checking out ``stable`` version..."
+git checkout stable
+
+log_info "setting up dependencies..."
+sudo apt-get install ninja-build gettext cmake unzip curl
+
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd $CWD_PATH
+log_info "OK!"
+
+log_info "setting up ``neovim`` config..."
+mkdir -p $CFG_TARGET_PATH_NEOVIM
+cp -r $CFG_SRC_PATH_NEOVIM $CFG_TARGET_PATH_NEOVIM
+log_info "OK!"
