@@ -1,3 +1,14 @@
+-- Load `nvim-packer` and all plugins.
+require('pacman')
+require('colorscheme')
+require('explorer')
+require('lsp')
+require('completions')
+require('statusline')
+require('telescope')
+require('treesitter')
+require('greeter')
+
 -- Enable relative line numbers.
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -14,3 +25,5 @@ vim.opt.textwidth = 90
 
 -- Set the offset for when buffer starts moving.
 vim.opt.scrolloff = 12
+
+vim.keymap.set('', '<M-e>', toggle_tree)
