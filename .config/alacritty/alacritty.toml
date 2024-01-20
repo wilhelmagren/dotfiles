@@ -1,53 +1,54 @@
 [colors.bright]
-black = "#282c34"
+black = "#5c6370"
 blue = "#61afef"
 cyan = "#56b6c2"
-green = "#98c378"
+green = "#98c379"
 magenta = "#c678dd"
 red = "#e06c75"
-white = "#abb2bf"
-yellow = "#e5c07b"
+white = "#e6efff"
+yellow = "#d19a66"
 
 [colors.normal]
-black = "#282c34"
+black = "#1e2127"
 blue = "#61afef"
 cyan = "#56b6c2"
-green = "#98c378"
+green = "#98c379"
 magenta = "#c678dd"
 red = "#e06c75"
-white = "#abb2bf"
-yellow = "#e5c07b"
+white = "#828791"
+yellow = "#d19a66"
 
 [colors.primary]
-background = "#1d1f21"
-foreground = "#c5c8c6"
+background = "#1e2127"
+foreground = "#abb2bf"
+bright_foreground = "#e6efff"
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 14.0
 
 [font.bold]
-family = "monospace"
-style = "Regular"
+family = "FiraMonoNerdFont"
+style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "FiraMonoNerdFont"
 style = "Italic"
 
 [font.italic]
-family = "monospace"
+family = "FiraMonoNerdFont"
 style = "Italic"
 
 [font.normal]
-family = "monospace"
+family = "FiraMonoNerdFont"
 style = "Regular"
 
 [window]
 decorations = "full"
 dynamic_title = true
-opacity = 0.99
+opacity = 0.96
 title = "Alacritty"
 
 [window.dimensions]
