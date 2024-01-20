@@ -67,7 +67,7 @@ function log_warning ()
 # Ask user for verification to install a bunch of stuff.
 #
 clear
-banner " DEBIAN SYSTEM SETUP "
+banner " dev0rce SYSTEM INSTALLER "
 query_user "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT"
 
 #
@@ -140,3 +140,13 @@ cargo install starship --locked
 log_info "setting up ``starship`` config..."
 cp $CFG_SRC_PATH_STARSHIP $CFG_TARGET_PATH_STARSHIP
 log_info "OK!"
+
+#
+# Cleaning up tmp folders.
+#
+log_info "cleaning up any tmp folders created..."
+rm -rf TMP_PATH_ALACRITTY
+rm -rf TMP_PATH_NEOVIM
+log_info "OK!"
+
+banner " DONE! "
