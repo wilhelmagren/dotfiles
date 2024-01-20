@@ -46,8 +46,8 @@ function query_user()
     while true; do
         read -p "Are you sure that you want to proceed with doing this? [y\\n]" yn
         case $yn in
-            [Yy]* ) log_info "you chose ``yes``, starting installation process..."; break;;
-            [Nn]* ) log_info "you chose ``no``, exiting..."; exit;;
+            [Yy]* ) log_info "you chose 'yes', starting installation process..."; break;;
+            [Nn]* ) log_info "you chose 'no', exiting..."; exit;;
             * ) printf "Please answer either yes or no.\n";;
         esac
     done
@@ -73,7 +73,7 @@ query_user "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT"
 #
 # Update package manager and set up sudo access if not had previously.
 #
-log_info "setting up ``sudo`` and updating package manager..."
+log_info "setting up 'sudo' and updating package manager..."
 mkdir -p $TMP_PATH
 sudo apt-get update
 log_info "OK!"
@@ -88,7 +88,7 @@ log_info "OK!"
 #
 # Build and install Alacritty from source.
 #
-log_info "installing ``alacritty``..."
+log_info "installing 'alacritty'..."
 git clone https://github.com/alacritty/alacritty.git $TMP_PATH_ALACRITTY
 cd $TMP_PATH_ALACRITTY
 
@@ -104,7 +104,7 @@ sudo update-desktop-database
 cd $CWD_PATH
 log_info "OK!"
 
-log_info "setting up ``alacritty`` config..."
+log_info "setting up 'alacritty' config..."
 mkdir -p $CFG_TARGET_PATH_ALACRITTY
 cp -r $CFG_SRC_PATH_ALACRITTY $CFG_TARGET_PATH_ALACRITTY
 log_info "OK!"
@@ -112,10 +112,10 @@ log_info "OK!"
 #
 # Build and install Neovim from source.
 #
-log_info "installing ``neovim``..."
+log_info "installing 'neovim'..."
 git clone https://github.com/neovim/neovim $TMP_PATH_NEOVIM
 cd $TMP_PATH_NEOVIM
-log_info "checking out ``stable`` version..."
+log_info "checking out 'stable' version..."
 git checkout stable
 
 log_info "setting up dependencies..."
@@ -126,7 +126,7 @@ sudo make install
 cd $CWD_PATH
 log_info "OK!"
 
-log_info "setting up ``neovim`` config..."
+log_info "setting up 'neovim' config..."
 mkdir -p $CFG_TARGET_PATH_NEOVIM
 cp -r $CFG_SRC_PATH_NEOVIM $CFG_TARGET_PATH_NEOVIM
 log_info "OK!"
@@ -134,17 +134,46 @@ log_info "OK!"
 #
 # Build and install starship prompt.
 #
-log_info "installing ``starship``..."
+log_info "installing 'starship' from crates.io ..."
 cargo install starship --locked
 
-log_info "setting up ``starship`` config..."
+log_info "setting up 'starship' config..."
 cp $CFG_SRC_PATH_STARSHIP $CFG_TARGET_PATH_STARSHIP
 log_info "OK!"
+
+#
+# Install golang.
+#
+log_info "installing 'golang' from go.dev archive..."
+wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+log_info "OK!"
+
+log_info "setting up path to Go binary, and testing version..."
+export PATH=$PATH:/usr/local/go/bin
+go version
+log_info "OK!"
+
+#
+# Install nodejs and npm.
+# Yes, npm... but it is needed for some nvim language servers.
+#
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+#
+# Install some Python deps.
+#
+sudo apt-get install python3-venv
+python3 -m pip install --upgrade pip
+python3 -m pip install notebook
 
 #
 # Cleaning up tmp folders.
 #
 log_info "cleaning up any tmp folders created..."
+rm go1.21.6.linux-amd64.tar.gz
 rm -rf TMP_PATH_ALACRITTY
 rm -rf TMP_PATH_NEOVIM
 log_info "OK!"
