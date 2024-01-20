@@ -16,11 +16,11 @@ TMP_PATH="/tmp/dotfiles"
 
 TMP_PATH_ALACRITTY="${TMP_PATH}/alacritty"
 CFG_SRC_PATH_ALACRITTY="${CWD_PATH}/.config/alacritty"
-CFG_TARGET_PATH_ALACRITTY="${HOME}/.config/alacritty"
+CFG_TARGET_PATH_ALACRITTY="${HOME}/.config"
 
 TMP_PATH_NEOVIM="${TMP_PATH}/neovim"
 CFG_SRC_PATH_NEOVIM="${CWD_PATH}/.config/nvim"
-CFG_TARGET_PATH_NEOVIM="${HOME}/.config/nvim"
+CFG_TARGET_PATH_NEOVIM="${HOME}/.config"
 
 CFG_SRC_PATH_STARSHIP="${CWD_PATH}/.config/starship.toml"
 CFG_TARGET_PATH_STARSHIP="${HOME}/.config/starship.toml"
