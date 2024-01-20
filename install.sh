@@ -22,6 +22,9 @@ TMP_PATH_NEOVIM="${TMP_PATH}/neovim"
 CFG_SRC_PATH_NEOVIM="${CWD_PATH}/.config/nvim"
 CFG_TARGET_PATH_NEOVIM="${HOME}/.config/nvim"
 
+CFG_SRC_PATH_STARSHIP="${CWD_PATH}/.config/starship.toml"
+CFG_TARGET_PATH_STARSHIP="${HOME}/.config/starship.toml"
+
 function repeat_character ()
 {
     for i in $( seq 0 $2 ); do printf "$1"; done
@@ -126,4 +129,14 @@ log_info "OK!"
 log_info "setting up ``neovim`` config..."
 mkdir -p $CFG_TARGET_PATH_NEOVIM
 cp -r $CFG_SRC_PATH_NEOVIM $CFG_TARGET_PATH_NEOVIM
+log_info "OK!"
+
+#
+# Build and install starship prompt.
+#
+log_info "installing ``starship``..."
+cargo install starship --locked
+
+log_info "setting up ``starship`` config..."
+cp $CFG_SRC_PATH_STARSHIP $CFG_TARGET_PATH_STARSHIP
 log_info "OK!"
