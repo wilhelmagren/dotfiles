@@ -156,18 +156,31 @@ go version
 log_info "OK!"
 
 #
+# Install jdk and jre.
+# Yea, Java..., needed for some stuffs.
+#
+log_info "installing 'default-jre' and 'default-jdk'..."
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+log_info "OK!"
+
+#
 # Install nodejs and npm.
 # Yes, npm... but it is needed for some nvim language servers.
 #
+log_info "installing 'nodejs' and 'npm'..."
 sudo apt-get install nodejs
 sudo apt-get install npm
+log_info "OK!"
 
 #
 # Install some Python deps.
 #
+log_info "installing some Python3 deps and utilities..."
 sudo apt-get install python3-venv
 python3 -m pip install --upgrade pip
 python3 -m pip install notebook
+log_info "OK!"
 
 #
 # Cleaning up tmp folders.
