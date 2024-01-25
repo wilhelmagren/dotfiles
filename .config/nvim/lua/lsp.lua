@@ -7,6 +7,9 @@ require('mason-lspconfig').setup({
         'rust_analyzer',
         'golangci_lint_ls',
         'bashls',
+        'dockerls',
+        'yamlls',
+        'taplo',
     }
 })
 
@@ -43,6 +46,21 @@ require('lspconfig').golangci_lint_ls.setup {
 }
 
 require('lspconfig').bashls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+require('lspconfig').dockerls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+require('lspconfig').yamlls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+require('lspconfig').taplo.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
