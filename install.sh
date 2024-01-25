@@ -194,6 +194,13 @@ python3 -m pip install notebook
 log_info "OK!"
 
 #
+# Install tmux plugin manager (tpm).
+#
+log_info "installing 'tmux plugin manager (tpm)'..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+log_info "OK!"
+
+#
 # Move some dotfiles to home folder.
 #
 log_info "installing common dotfiles to your $HOME folder..."
@@ -206,6 +213,10 @@ log_info "OK!"
 #
 log_info "installing 'FiraMono Nerd Font'..."
 cd $TMP_PATH
+if [ ! -d "$FONTS_PATH" ]; then
+    log_warning "you did not have a $FONTS_PATH on your system, creating it for you..."
+    mkdir -p $FONTS_PATH
+fi
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip
 unzip FiraMono.zip -d $FONTS_PATH
 log_info "OK!"
