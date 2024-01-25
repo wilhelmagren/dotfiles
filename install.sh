@@ -13,6 +13,7 @@ LIGHT_GRAY='\033[0;37m'
 
 CWD_PATH=$(pwd)
 TMP_PATH="/tmp/dotfiles"
+FONTS_PATH="$HOME/.local/share/fonts"
 
 TMP_PATH_ALACRITTY="${TMP_PATH}/alacritty"
 CFG_SRC_PATH_ALACRITTY="${CWD_PATH}/.config/alacritty"
@@ -26,7 +27,6 @@ CFG_SRC_PATH_STARSHIP="${CWD_PATH}/.config/starship.toml"
 CFG_TARGET_PATH_STARSHIP="${HOME}/.config/starship.toml"
 
 TMP_PATH_GOLANG="${TMP_PATH}/go"
-
 
 function repeat_character ()
 {
@@ -199,6 +199,15 @@ log_info "OK!"
 log_info "installing common dotfiles to your $HOME folder..."
 cp $CWD_PATH/.bashrc $HOME
 cp $CWD_PATH/.bash_aliases $HOME
+log_info "OK!"
+
+#
+# Install a Nerd Font for icons etc.
+#
+log_info "installing 'FiraMono Nerd Font'..."
+cd $TMP_PATH
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip
+unzip FiraMono.zip -d $FONTS_PATH
 log_info "OK!"
 
 #
