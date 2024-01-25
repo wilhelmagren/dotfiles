@@ -206,6 +206,7 @@ log_info "OK!"
 log_info "installing common dotfiles to your $HOME folder..."
 cp $CWD_PATH/.bashrc $HOME
 cp $CWD_PATH/.bash_aliases $HOME
+cp $CWD_PATH/.tmux.conf $HOME
 log_info "OK!"
 
 #
