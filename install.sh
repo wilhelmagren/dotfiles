@@ -94,6 +94,7 @@ log_info "OK!"
 #
 log_info "installing Rust compiler, please follow any on screen prompts..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
 log_info "OK!"
 
 #
@@ -190,6 +191,14 @@ log_info "installing some Python3 deps and utilities..."
 sudo apt-get install python3-venv
 python3 -m pip install --upgrade pip
 python3 -m pip install notebook
+log_info "OK!"
+
+#
+# Move some dotfiles to home folder.
+#
+log_info "installing common dotfiles to your $HOME folder..."
+cp $CWD_PATH/.bashrc $HOME
+cp $CWD_PATH/.bash_aliases $HOME
 log_info "OK!"
 
 #
