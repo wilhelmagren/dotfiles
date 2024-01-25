@@ -25,6 +25,9 @@ CFG_TARGET_PATH_NEOVIM="${HOME}/.config"
 CFG_SRC_PATH_STARSHIP="${CWD_PATH}/.config/starship.toml"
 CFG_TARGET_PATH_STARSHIP="${HOME}/.config/starship.toml"
 
+TMP_PATH_GOLANG="${TMP_PATH}/go"
+
+
 function repeat_character ()
 {
     for i in $( seq 0 $2 ); do printf "$1"; done
@@ -34,7 +37,7 @@ function banner ()
 {
     msglen=$(( ${#1} + 2 ))
     nchars=$(( ($(tput cols) - msglen + (msglen % 2)) / 2 ))
-    repeat_character "${PURPLE}=" $(( nchars ))
+    repeat_character "${GREEN}=" $(( nchars ))
     printf "$1"
     repeat_character "=" $(( $(tput cols) - msglen - nchars ))
     printf "${RESET}\n"
@@ -67,7 +70,7 @@ function log_warning ()
 # Ask user for verification to install a bunch of stuff.
 #
 clear
-banner " dev0rce SYSTEM INSTALLER "
+banner " gabagool SYSTEM INSTALLER "
 query_user "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT"
 
 #
@@ -76,6 +79,14 @@ query_user "THIS SCRIPT WILL INSTALL AND BUILD A BUNCH OF STUFF AS ROOT"
 log_info "setting up 'sudo' and updating package manager..."
 mkdir -p $TMP_PATH
 sudo apt-get update
+log_info "OK!"
+
+#
+# Install common build utils.
+#
+
+log_info "installing common build tools & utilities..."
+sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 ninja-build gettext unzip curl
 log_info "OK!"
 
 #
@@ -91,9 +102,6 @@ log_info "OK!"
 log_info "installing 'alacritty'..."
 git clone https://github.com/alacritty/alacritty.git $TMP_PATH_ALACRITTY
 cd $TMP_PATH_ALACRITTY
-
-log_info "setting up dependencies..."
-sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
 cargo build --release
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
@@ -145,9 +153,11 @@ log_info "OK!"
 # Install golang.
 #
 log_info "installing 'golang' from go.dev archive..."
+cd $TMP_PATH_GOLANG
 wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go
-tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+cd $CWD_PATH
 log_info "OK!"
 
 log_info "setting up path to Go binary, and testing version..."
@@ -189,6 +199,7 @@ log_info "cleaning up any tmp folders created..."
 rm go1.21.6.linux-amd64.tar.gz
 rm -rf TMP_PATH_ALACRITTY
 rm -rf TMP_PATH_NEOVIM
+rm -rf TMP_PATH_GOLANG
 log_info "OK!"
 
 banner " DONE! "
