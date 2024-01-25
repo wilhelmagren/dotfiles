@@ -84,7 +84,6 @@ log_info "OK!"
 #
 # Install common build utils.
 #
-
 log_info "installing common build tools & utilities..."
 sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 ninja-build gettext unzip curl
 log_info "OK!"
@@ -196,7 +195,8 @@ log_info "OK!"
 #
 # Install tmux plugin manager (tpm).
 #
-log_info "installing 'tmux plugin manager (tpm)'..."
+log_info "installing 'tmux' and 'tmux plugin manager (tpm)'..."
+sudo apt-get install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 log_info "OK!"
 
