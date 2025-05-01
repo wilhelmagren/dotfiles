@@ -27,3 +27,4 @@ vim.opt.textwidth = 90
 vim.opt.scrolloff = 12
 
 vim.keymap.set('', '<M-e>', toggle_tree)
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = false })
