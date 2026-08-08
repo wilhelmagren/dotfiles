@@ -6,3 +6,8 @@
                                     
 
 enjoy
+
+I use `GNU stow` to manage the dotfiles.
+
+Simply clone this repo, cd into it, and run e.g. `stow nvim` to apply the neovim config.
+
