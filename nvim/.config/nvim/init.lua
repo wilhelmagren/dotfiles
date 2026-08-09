@@ -10,11 +10,15 @@ vim.g.have_nerd_font = true
 require('options')
 require('colorscheme')
 require('lsp')
+require('statusline')
 require('autocommands')
 require('diagnostics')
+require('explorer')
 require('keymaps')
 require('find')
+require('grep')
 require('terminal')
+require('completion')
 require('treesitter')
 
 -- this is experimental

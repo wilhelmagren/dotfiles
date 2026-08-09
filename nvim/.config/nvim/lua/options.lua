@@ -65,6 +65,3 @@ vim.o.laststatus = 3
 -- Number of screen lines to use for the command line.
 -- This setting is experimental, but works better with ui2 enabled.
 vim.o.cmdheight = 0
-
-vim.opt.grepprg = 'rg --vimgrep --smart-case --hidden -g \'!.git\''
-vim.opt.grepformat = '%f:%l:%c:%m'

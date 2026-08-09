@@ -1,0 +1,10 @@
+{
+  "function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name}(${2:args}) -> ${3:None}:",
+      "\t${0:pass}"
+    ],
+    "description": "Python function"
+  }
+}

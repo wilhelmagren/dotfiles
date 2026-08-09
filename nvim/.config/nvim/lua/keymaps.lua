@@ -14,14 +14,5 @@ map('n', '<C-a>h', '<C-w>h', { desc = 'Navigate (split) left' })
 map('n', '<C-a>l', '<C-w>l', { desc = 'Navigate (split) right' })
 
 map('n', '<C-a>d', vim.diagnostic.open_float, { desc = 'Open [D]iagnostics float' })
-map('n', '<leader>e', ':Lexplore<cr>', { silent = true, desc = '[E]explore' })
 
 map('n', '<leader>q', '<cmd>cclose<CR>', { desc = 'Close quickfix' })
-map('n', '<leader>sg', function()
-  vim.ui.input({ prompt = 'grep: ' }, function(pattern)
-    if pattern then
-      vim.cmd('silent grep! ' .. vim.fn.fnameescape(pattern))
-      vim.cmd('copen')
-    end
-  end)
-end, { desc = '[S]earch by [G]rep' })

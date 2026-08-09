@@ -15,6 +15,11 @@ case "$(uname -s)" in
         source /etc/os-release
         OS="${ID,,}"
         ;;
+
+    Darwin)
+        OS="macos"
+        ;;
+
     *)
         echo "Unsupported OS: $(uname -s)"
         exit 1
