@@ -1,5 +1,5 @@
 function fish_greeting
-    fastfetch
+    # dont do anything
 end
 
 # man pages formatting
