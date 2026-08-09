@@ -30,7 +30,7 @@ function has_prog() {
 }
 
 echo -e "\nInstalling system packages..."
-sudo "$SCRIPTDIR/cachyos-system-install.sh"
+sudo "$SCRIPTDIR/system-install.sh"
 
 echo -e "\nInstalling user applications..."
 

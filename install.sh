@@ -26,7 +26,7 @@ case "$(uname -s)" in
         ;;
 esac
 
-INSTALLER="$INSTALLDIR/${OS}-install.sh"
+INSTALLER="$INSTALLDIR/${OS}/install.sh"
 
 if [[ ! -f "$INSTALLER" ]]; then
     echo "No installer found for '$OS':"
