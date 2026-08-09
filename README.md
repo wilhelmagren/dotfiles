@@ -16,5 +16,5 @@ Clone this repo, cd into it, and run e.g. `stow nvim` to apply the neovim config
 
 # License
 
-[MIT](./LICENSE) © (wilhelmagren)[https://github.com/wilhelmagren/]
+[MIT](./LICENSE) © [wilhelmagren](https://github.com/wilhelmagren/)
 
