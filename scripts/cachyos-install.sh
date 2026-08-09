@@ -2,18 +2,20 @@
 
 set -eou pipefail
 
+SCRIPTDIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
 GITDIR="$HOME/git"
 CONFIGDIR="$HOME/.config"
 
 printf "\033[36m"
 cat << 'EOF'
 
-              _     __                     __
-   ____ ___  (_)___/ /___ _____ __________/ /
-  / __ `__ \/ / __  / __ `/ __ `/ ___/ __  /
- / / / / / / / /_/ / /_/ / /_/ / /  / /_/ /
-/_/ /_/ /_/_/\__,_/\__, /\__,_/_/   \__,_/
-                  /____/
+     ______           __          ____  _____
+    / ____/___ ______/ /_  __  __/ __ \/ ___/
+   / /   / __ `/ ___/ __ \/ / / / / / /\__ \ 
+  / /___/ /_/ / /__/ / / / /_/ / /_/ /___/ / 
+  \____/\__,_/\___/_/ /_/\__, /\____//____/  
+                        /____/
 EOF
 printf "\033[0m"
 
@@ -28,7 +30,7 @@ function has_prog() {
 }
 
 echo -e "\nInstalling system packages..."
-sudo ./cachyos-system-install.sh
+sudo "$SCRIPTDIR/cachyos-system-install.sh"
 
 echo -e "\nInstalling user applications..."
 
