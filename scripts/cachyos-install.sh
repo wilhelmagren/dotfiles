@@ -28,7 +28,7 @@ function has_prog() {
 }
 
 echo -e "\nInstalling system packages..."
-sudo ./system-install.sh
+sudo ./cachyos-system-install.sh
 
 echo -e "\nInstalling user applications..."
 
