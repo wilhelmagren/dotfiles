@@ -2,6 +2,7 @@ function fish_greeting
     # dont do anything
 end
 
+
 # man pages formatting
 set -x MANROFFOPT "-c"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
@@ -11,6 +12,7 @@ if test -f ~/.fish_profile
 end
 
 fish_add_path ~/.local/bin
+fish_add_path ~/.local/share/coursier/bin
 
 function history
     builtin history --show-time='%F %T ' $argv
@@ -34,6 +36,9 @@ alias vim='nvim'
 
 alias update='sudo cachyos-rate-mirrows && sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+
+source ~/.cargo/env.fish
+source ~/.local/bin/env.fish
 
 if status is-interactive
     set -gx COLORTERM truecolor

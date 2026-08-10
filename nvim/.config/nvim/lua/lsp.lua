@@ -32,4 +32,4 @@ vim.opt.completeopt = {
   'noselect',
 }
 
-vim.lsp.enable({ 'lua_ls', 'ruff', 'pyrefly' })
+vim.lsp.enable({ 'lua_ls', 'ruff', 'pyrefly', 'metals' })

@@ -12,7 +12,7 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm \
     base-devel git curl wget ripgrep fzf jq htop tmux cmake ninja jdk21-openjdk \
     maven gradle sbt go ghostty lua-language-server stow tree-sitter tree-sitter-cli \
-    zoxide tree
+    zoxide tree jdk17-openjdk
  
 sudo pacman -S --needed --noconfirm \
     cachyos-gaming-meta cachyos-hooks gamemode mangohud mesa vulkan-radeon \

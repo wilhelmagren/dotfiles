@@ -34,6 +34,24 @@ sudo "$SCRIPTDIR/system-install.sh"
 
 echo -e "\nInstalling user applications..."
 
+if ! has_prog yay; then
+    pushd /tmp
+    git clone https://aur.archlinux.org/yay.git
+    pushd yay
+
+    makepkg -si
+    popd
+    popd
+fi
+
+if ! has_prog coursier; then
+    yay -S coursier
+fi
+
+if ! has_prog metals; then
+    coursier install metals:1.6.7
+fi
+
 if ! has_prog starship; then
     curl -sS https://starship.rs/install.sh | sh
 fi
@@ -66,7 +84,7 @@ fi
 
 echo -e "\nSetting up configurations..."
 
-sudo archlinux-java set java-21-openjdk
+sudo archlinux-java set java-17-openjdk
 fish -c "set -Ux JAVA_HOME /usr/lib/jvm/default"
 
 # fish add path will return non-zero exit code if path already exists

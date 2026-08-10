@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export JAVA_HOME:/usr/lib/jvm/default
-SETUVAR fish_user_paths:/home/chud/go/bin\x1e/home/chud/\x2elocal/bin
+SETUVAR fish_user_paths:/home/chud/\x2elocal/share/coursier/bin\x1e/home/chud/go/bin\x1e/home/chud/\x2elocal/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute
