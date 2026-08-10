@@ -9,6 +9,7 @@ blink.build():pwait()
 
 blink.setup({
   keymap = { preset = 'default' },
+  cmdline = { enabled = false },
   completion = {
     documentation = {
       auto_show = true,
