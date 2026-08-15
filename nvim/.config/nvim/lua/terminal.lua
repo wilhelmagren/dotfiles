@@ -40,8 +40,3 @@ map('t', '<Esc><Esc>', function()
     vim.cmd('close')
   end)
 end, { desc = ' ' })
-
-map('n', '<leader>tv', function()
-  vim.cmd('rightbelow vsplit')
-  vim.cmd('terminal')
-end, { desc = 'Open terminal right split' })

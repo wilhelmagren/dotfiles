@@ -13,6 +13,18 @@ map('n', '<C-a>j', '<C-w>j', { desc = 'Navigate (split) down' })
 map('n', '<C-a>h', '<C-w>h', { desc = 'Navigate (split) left' })
 map('n', '<C-a>l', '<C-w>l', { desc = 'Navigate (split) right' })
 
+map('t', '<C-a>k', [[<C-\><C-n><C-w>k]], { desc = 'Navigate (split) up (in terminal)' })
+map('t', '<C-a>j', [[<C-\><C-n><C-w>j]], { desc = 'Navigate (split) down (in terminal)' })
+map('t', '<C-a>h', [[<C-\><C-n><C-w>h]], { desc = 'Navigate (split) left (in terminal)' })
+map('t', '<C-a>l', [[<C-\><C-n><C-w>l]], { desc = 'Navigate (split) right (in terminal) (in terminal)' })
+
+
 map('n', '<C-a>d', vim.diagnostic.open_float, { desc = 'Open [D]iagnostics float' })
 
 map('n', '<leader>q', '<cmd>cclose<CR>', { desc = 'Close quickfix' })
+
+
+map('n', '<leader>tv', function()
+  vim.cmd('rightbelow vsplit')
+  vim.cmd('terminal')
+end, { desc = 'Open terminal right split' })
