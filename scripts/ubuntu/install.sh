@@ -40,6 +40,7 @@ fi
 if ! has_prog cargo; then
     curl https://sh.rustup.rs -sSf | sh
     source $HOME/.cargo/env
+    rustup component add rust-std rust-analyzer
 fi
 
 if ! has_prog uv; then
