@@ -16,4 +16,5 @@ sudo pacman -S --needed --noconfirm \
  
 sudo pacman -S --needed --noconfirm \
     cachyos-gaming-meta cachyos-hooks gamemode mangohud mesa vulkan-radeon \
-    lib32-vulkan-radeon steam protonplus discord
+    lib32-vulkan-radeon steam protonplus discord lutris wine-staging winetricks \
+    giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls
