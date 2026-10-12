@@ -34,7 +34,7 @@ alias hw='hwinfo --short'
 alias vi='nvim'
 alias vim='nvim'
 
-alias update='sudo cachyos-rate-mirrows && sudo pacman -Syu'
+alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 
 source ~/.cargo/env.fish
