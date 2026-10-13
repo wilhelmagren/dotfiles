@@ -1,4 +1,5 @@
 command = /usr/bin/fish --login --interactive
 window-width = 200
 window-height = 50
-gtk-titlebar = true
+gtk-titlebar = false
+background-opacity = 0.95
