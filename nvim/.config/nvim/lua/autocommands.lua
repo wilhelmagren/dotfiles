@@ -70,3 +70,23 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
     vim.opt_local.cursorline = false
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'svelte',
+    'typescript',
+    'css',
+    'scss',
+    'html',
+    'sql',
+    'rust',
+    'python',
+    'java',
+    'scala',
+    'markdown',
+    'json',
+  },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})

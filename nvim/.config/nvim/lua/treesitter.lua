@@ -18,4 +18,8 @@ require('nvim-treesitter').install({
   'rust',
   'scala',
   'sql',
+  'typescript',
+  'svelte',
+  'json',
+  'html',
 })

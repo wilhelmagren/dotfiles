@@ -19,8 +19,31 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('gri', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     map('grd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     map('grt', vim.lsp.buf.type_definition, '[G]oto [T]type definition')
+
     map('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, 'Hover')
-    map('<leader>f', function() vim.lsp.buf.format({ async = true }) end, '[F]ormat')
+
+    map('<leader>f', function()
+      local ft = vim.bo.filetype
+
+      local prettier_filetypes = {
+        svelte = true,
+        typescript = true,
+        typescriptreact = true,
+        javascript = true,
+        javascriptreact = true,
+        css = true,
+        scss = true,
+        html = true,
+        json = true,
+        jsonc = true,
+      }
+
+      if prettier_filetypes[ft] then
+        require('prettier').format()
+      else
+        vim.lsp.buf.format({ async = true })
+      end
+    end, '[F]ormat')
   end,
 })
 
@@ -32,4 +55,5 @@ vim.opt.completeopt = {
   'noselect',
 }
 
-vim.lsp.enable({ 'lua_ls', 'ruff', 'pyrefly', 'metals', 'rust_analyzer' })
+vim.lsp.enable({ 'lua_ls', 'ruff', 'pyrefly', 'metals', 'rust_analyzer', 'ts_ls', 'svelte', 'cssls', 'tailwindcss',
+  'jsonls' })
