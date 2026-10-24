@@ -22,4 +22,5 @@ require('nvim-treesitter').install({
   'svelte',
   'json',
   'html',
+  'css',
 })
