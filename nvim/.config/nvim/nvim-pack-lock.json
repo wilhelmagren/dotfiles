@@ -8,6 +8,10 @@
       "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "src": "https://www.github.com/saghen/blink.lib"
     },
+    "dark2026": {
+      "rev": "3fc6ca199a3537b46e49dbe5eed669fe9ff0d63e",
+      "src": "https://github.com/D0nw0r/dark2026.nvim"
+    },
     "everforest": {
       "rev": "a0e9edc57379e8feafc6ba207c26dbb12fc1b6d8",
       "src": "https://github.com/neanias/everforest-nvim"
