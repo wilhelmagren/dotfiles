@@ -1,5 +1,12 @@
 command = /usr/bin/fish --login --interactive
 window-width = 200
 window-height = 50
-gtk-titlebar = false
+gtk-titlebar = true
 background-opacity = 0.95
+
+keybind = alt+b=toggle_window_decorations
+keybind = alt+,=reload_config
+keybind = alt+t=new_tab
+keybind = alt+w=close_tab
+keybind = alt+h=previous_tab
+keybind = alt+l=next_tab
