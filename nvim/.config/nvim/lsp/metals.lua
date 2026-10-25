@@ -6,8 +6,8 @@ return {
   cmd = { 'metals' },
   filetypes = { 'scala' },
   root_markers = {
-    '.git',
     { 'pom.xml', 'build.sbt', 'build.sc', 'build.gradle', 'build.gradle.kts' },
+    '.git',
   },
   settings = {
     metals = {

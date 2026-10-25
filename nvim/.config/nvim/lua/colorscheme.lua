@@ -12,7 +12,7 @@ require('rose-pine').setup({
   enable = { legacy_highlights = false },
 })
 
-vim.cmd.colorscheme('dark2026')
+vim.cmd.colorscheme('rose-pine')
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'FloatTitle', { bg = 'NONE' })
